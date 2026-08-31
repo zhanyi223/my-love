@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ถึงอ้วน 💗</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>💌 ถึงอ้วน 💌</h1>
+
+    <p>วันนี้วันที่ 1 กันยายน</p>
+    <p>เราเดินทางมาด้วยกันครบ 7 เดือนแล้วนะ 💗</p>
+
+   <button onclick="showMessage()">
+    เปิดข้อความ 💌
+</button>
+
+<p id="message" style="display: none;">
+    ขอบคุณที่เข้ามาเป็นส่วนหนึ่งในชีวิตเค้านะอ้วน 🥹💗
+    <br>
+    อยู่ด้วยกันไปนาน ๆ นะที่รัก
+</p>
+<br>
+
+<button onclick="goToQuiz()">
+    ไปต่อ → 🎮
+</button>
+
+<script>
+function goToQuiz() {
+    window.location.href = "quiz.html";
+}
+</script>
+<script>
+function showMessage() {
+    document.getElementById("message").style.display = "block";
+}
+</script>

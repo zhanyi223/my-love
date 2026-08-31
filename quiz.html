@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>เกมของเรา 💗</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>🎮 เกมของเรา</h1>
+
+    <p id="question"></p>
+
+    <div id="answers"></div>
+
+    <p id="result"></p>
+
+    <script>
+
+        const questions = [
+            {
+                question: "ข้อ 1 เราเริ่มคบกันวันที่เท่าไหร่?",
+                answers: ["14 กุมภาพันธ์", "1 กุมภาพันธ์", "1 มีนาคม"],
+                correct: 1
+            },
+            {
+                question: "ข้อ 2  เราเจอกันที่ไหน?",
+                answers: ["โรงเรียน", "บ้านเค้า", "ร้านอาหาร","บ้านเทอ"],
+                correct: 0
+            },
+            {
+                question: "ข้อ 3  ใครเป็นฝ่ายทักก่อน?",
+                answers: ["อ้วน", "เค้า", "ไม่มีใครทักก่อน"],
+                correct: 0
+            },
+            {
+                question: "ข้อ 4  สิ่งที่เราชอบทำด้วยกันคืออะไร?",
+                answers: ["เล่นเกม", "ดูหนัง", "ใช้เวลาด้วยกันเยอะๆ"],
+                correct: 2
+            },
+            {
+                question:"ข้อ 5 ใครเป็นคนฟอมาก่อน?",
+                answers:["อ้วน","เค้า"],
+                correct: 0
+            },
+            { 
+                question:"ข้อ 6 เบอร์เค้าลงท้ายด้วยเลขอะไร? ",
+                answers:["6","0","2","8"],
+                correct: 2
+            },
+               
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function showQuestion() {
+
+            const q = questions[currentQuestion];
+
+            document.getElementById("question").innerHTML = q.question;
+
+            document.getElementById("answers").innerHTML = "";
+
+            q.answers.forEach((answer, index) => {
+
+                const button = document.createElement("button");
+
+                button.innerHTML = answer;
+
+                button.onclick = function() {
+                    checkAnswer(index);
+                };
+
+                document.getElementById("answers").appendChild(button);
+
+                document.getElementById("answers").appendChild(
+                    document.createElement("br")
+                );
+
+            });
+
+            document.getElementById("result").innerHTML = "";
+        }
+
+        function checkAnswer(answer) {
+
+            if (answer === questions[currentQuestion].correct) {
+
+                score++;
+
+                document.getElementById("result").innerHTML =
+                    "เก่งที่สู๊ดดด💗";
+
+            } else {
+
+                document.getElementById("result").innerHTML =
+                    "ไม่ใช่ละๆตอบใหม่!!!";
+                return;
+            }
+
+            setTimeout(function() {
+
+                currentQuestion++;
+
+                if (currentQuestion < questions.length) {
+
+                    showQuestion();
+
+                } else {
+
+                    document.getElementById("question").innerHTML =
+                        "🎉 เก่งมากอ้วน!";
+
+                    document.getElementById("answers").innerHTML =
+                        "<p>ตอบถูกครบ " + score + " / " +
+                        questions.length + " ข้อ 💗</p>" +
+                        "<button onclick=\"goNext()\">" +
+                        "ไปต่อ 💌" +
+                        "</button>";
+
+                    document.getElementById("result").innerHTML =
+                        "มีอะไรอีกอย่างที่อยากให้อ้วนเปิดดู... 🥹";
+
+                }
+
+            }, 1000);
+        }
+
+        function goNext() {
+
+            window.location.href = "letter.html";
+
+        }
+
+        showQuestion();
+
+    </script>
+
+</body>
+</html>

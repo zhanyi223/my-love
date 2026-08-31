@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <title>จดหมายถึงอ้วน 💌</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>💌 ถึงอ้วน</h1>
+
+    <p id="letterText">
+        มีข้อความบางอย่างที่เราอยากบอกอ้วน...
+    </p>
+
+    <button onclick="openLetter()">
+        เปิดจดหมาย 💌
+    </button>
+
+    <div id="letter" style="display: none;">
+
+        <p>
+            ครบ 7 เดือนแล้วนะอ้วน 💗💗💗
+        </p>
+
+        <p>
+            ขอบคุณที่เข้ามาเป็นส่วนหนึ่งในชีวิตเค้านะ<br>
+            ขอบคุณสำหรับทุกช่วงเวลาที่เราได้ใช้ด้วยกัน
+        </p>
+
+        <p>
+            เราอาจจะไม่ได้คุยกันตลอด<br>
+            แต่ทุกครั้งที่ได้คุยเค้ามีความสุขมากก<br>
+            เค้ารักเทอมากๆๆๆนะ 💗
+        </p>
+
+        <p>
+            ตั้งแต่วันนั้นที่เจอกัน<br>
+            เค้ารู้เลยว่าเทอนี่แหละที่เค้าอยากดูแล<br>
+            เทอนี้แหละที่เค้าจะฝากชีวิตไว้ด้วย
+        </p>
+
+        <p>
+            สุขสันต์วันครบรอบ 7 เดือนนะอ้วน 💗
+        </p>
+
+        <p>
+            อยู่ด้วยกันแบบนี้ไปนานๆนะคนเก่ง💗
+        </p>
+
+        <h2>เค้ารักเทอมากนะอ้วน 💗</h2>
+        <br>
+        <button onclick="openGift()">
+            🎁เปิดของขวัญสุดท้าย🎁
+        </button>
+        <p id="gift" style="display: none;">
+            happy 7 months นะอ้วน💗<br><br>
+            ขอบคุณที่ยังอยู่ด้วยกันมาจนถึงทุกวันนี้นะ<br>
+            ขอให้เราอยู่ด้วยกันแบบนี้ไปนานนนๆๆๆนะอ้วน💗💗</p>
+
+    </div>
+
+    <script>
+        function openLetter() {
+
+            document.getElementById("letterText").style.display = "none";
+
+            document.querySelector("button").style.display = "none";
+
+            document.getElementById("letter").style.display = "block";
+        }
+        function openGift() {
+
+    document.getElementById("gift").style.display = "block";
+
+    for (let i = 0; i < 20; i++) {
+
+        let heart = document.createElement("div");
+
+        heart.innerHTML = "💗";
+
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "100vh";
+        heart.style.fontSize = (20 + Math.random() * 25) + "px";
+        heart.style.transition = "transform 3s, opacity 3s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function() {
+            heart.style.transform =
+                "translateY(-100vh) rotate(360deg)";
+            heart.style.opacity = "0";
+        }, 100);
+
+        setTimeout(function() {
+            heart.remove();
+        }, 3100);
+    }
+}
+    </script>
+
+</body>
+
+</html>
